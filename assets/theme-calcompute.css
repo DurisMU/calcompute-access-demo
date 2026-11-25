@@ -346,3 +346,7 @@ h1, h2, h3, h4,
   font-size: 11px;
   vertical-align: middle;
 }
+
+/* Softer overlay so the page does not look black. */
+.popup-overlay { background: rgba(0, 32, 51, 0.22); backdrop-filter: blur(6px); }
+body.embed .popup-overlay { background: rgba(0, 32, 51, 0.10); }
