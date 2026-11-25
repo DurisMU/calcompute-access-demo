@@ -9,6 +9,12 @@
   if (!overlay) return;
 
   let lastFocus = null;
+  const params = new URLSearchParams(window.location.search);
+  const embedMode = params.get("embed") === "1";
+
+  if (embedMode) {
+    document.body.classList.add("embed");
+  }
 
   function openPopup() {
     lastFocus = document.activeElement;
@@ -67,7 +73,9 @@
     dismissed = false;
   }
 
-  if (!dismissed) {
+  if (embedMode) {
+    window.setTimeout(openPopup, 450);
+  } else if (!dismissed) {
     window.setTimeout(openPopup, 2600);
   }
 })();

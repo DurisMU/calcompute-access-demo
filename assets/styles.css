@@ -947,3 +947,28 @@ h1 {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Embed mode for Miro / iframe */
+body.embed .site-header,
+body.embed .site-footer,
+body.embed .fab {
+  display: none !important;
+}
+
+body.embed .hero {
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+
+body.embed .wrap {
+  width: min(1100px, calc(100% - 24px));
+}
+
+body.embed .popup-overlay {
+  padding: 14px;
+}
+
+body.embed .popup {
+  max-height: calc(100vh - 28px);
+  overflow: auto;
+}
