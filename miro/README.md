@@ -21,3 +21,23 @@ Demo URLs:
 - Survey: `/survey/`
 - Survey form (skip intro): `/survey/?start=1`
 - Result preview: `/survey/?demo=result`
+
+## Embed mode
+
+Use this URL inside a Miro Embed / Web page card:
+
+```text
+https://durismu.github.io/calcompute-access-demo/?embed=1
+```
+
+It hides the site header, footer, and floating button, and opens the popup automatically.
+Recommended embed size: 900 × 650 or 1000 × 750.
+
+If Miro asks for HTML:
+
+```html
+<iframe src="https://durismu.github.io/calcompute-access-demo/?embed=1"
+        width="100%" height="650"
+        style="border:0;border-radius:16px;"
+        allow="clipboard-write"></iframe>
+```

@@ -3,6 +3,8 @@
 **Live demo:** https://durismu.github.io/calcompute-access-demo/  
 **Survey:** https://durismu.github.io/calcompute-access-demo/survey/
 
+**Miro embed:** https://durismu.github.io/calcompute-access-demo/?embed=1
+
 A static GitHub Pages prototype for the CalCompute user-experience and access workstream.
 
 It includes:
