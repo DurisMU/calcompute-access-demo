@@ -75,7 +75,7 @@
       className: "band-support",
       title: "Your profile suggests eligibility, with support.",
       sub: "Your need is meaningful, but training, technical help, or more information may be needed before compute allocation.",
-      next: "<strong>What happens next:</strong> You would be routed to a supported onboarding track: training, office hours, and technical help before a compute allocation.",
+      next: "<strong>What happens next:</strong> Your data will be shared with CalCompute for a public compute assessment. If you agree and need public compute, please provide your contact information (email/phone).",
     },
     signpost: {
       label: "Signpost",
@@ -98,7 +98,7 @@
   const downloadBtn = document.getElementById("downloadBtn");
   const retakeBtn = document.getElementById("retakeBtn");
   const contactForm = document.getElementById("contactForm");
-  const contactEmail = document.getElementById("contactEmail");
+  const contactValue = document.getElementById("contactValue");
   const contactStatus = document.getElementById("contactStatus");
   const contactSubmit = document.getElementById("contactSubmit");
 
@@ -227,7 +227,8 @@
 
     lastPayload = {
       timestamp: new Date().toISOString(),
-      email: "",
+      contact: "",
+      contactType: "",
       scores: {
         resourceAccess: access,
         information: info,
@@ -265,7 +266,7 @@
     result.classList.remove("show");
     form.style.display = "none";
     intro.style.display = "block";
-    if (contactEmail) contactEmail.disabled = false;
+    if (contactValue) contactValue.disabled = false;
     if (contactSubmit) contactSubmit.disabled = false;
     if (contactStatus) {
       contactStatus.textContent = "";
@@ -320,18 +321,22 @@
   contactForm && contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!lastPayload) return;
-    const email = (contactEmail.value || "").trim();
-    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!valid) {
-      contactStatus.textContent = "Please enter a valid email address.";
+    const value = (contactValue.value || "").trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const digits = value.replace(/\D/g, "");
+    const phoneOk = /^[+()\d][\d\s().-]{6,}$/.test(value) && digits.length >= 7;
+    const isEmail = emailRe.test(value);
+    if (!isEmail && !phoneOk) {
+      contactStatus.textContent = "Please enter a valid email address or phone number.";
       contactStatus.classList.add("error");
-      contactEmail.focus();
+      contactValue.focus();
       return;
     }
-    lastPayload.email = email;
+    lastPayload.contact = value;
+    lastPayload.contactType = isEmail ? "email" : "phone";
     contactStatus.classList.remove("error");
-    contactStatus.textContent = "Thank you. Your result has been sent to CalCompute. We will contact you within 1 hour.";
-    contactEmail.disabled = true;
+    contactStatus.textContent = "Thank you. Your contact information has been sent to CalCompute. We will contact you within 1 hour.";
+    contactValue.disabled = true;
     contactSubmit.disabled = true;
   });
 
@@ -346,10 +351,13 @@
     intro.style.display = "none";
     form.style.display = "block";
   }
-  if (params.get("demo") === "result") {
+  const demoParam = params.get("demo");
+  if (demoParam === "result" || demoParam === "support") {
     intro.style.display = "none";
     form.style.display = "block";
-    const demo = { q1: 4, q2: 4, q3: 4, q4: 4, q5: 3, q6: 3, q7: 4, q8: 3, q9: 3, q10: 4, q11: 4, q12: 4 };
+    const demo = demoParam === "support"
+      ? { q1: 3, q2: 3, q3: 2, q4: 4, q5: 3, q6: 3, q7: 3, q8: 2, q9: 2, q10: 3, q11: 3, q12: 3 }
+      : { q1: 4, q2: 4, q3: 4, q4: 4, q5: 3, q6: 3, q7: 4, q8: 3, q9: 3, q10: 4, q11: 4, q12: 4 };
     Object.keys(demo).forEach(function (id) {
       const input = document.getElementById(id + "_" + demo[id]);
       if (input) input.checked = true;

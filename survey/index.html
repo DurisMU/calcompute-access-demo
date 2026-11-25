@@ -241,11 +241,11 @@
         <h3>We will contact you within 1 hour.</h3>
         <p>
           Your result will be sent to CalCompute. We will contact you within 1 hour.
-          Please leave your email so we can follow up.
+          Please leave your email or phone so we can follow up.
         </p>
         <form class="contact-form" id="contactForm" novalidate>
-          <label class="sr-only" for="contactEmail">Email address</label>
-          <input type="email" id="contactEmail" name="email" placeholder="you@organization.org" autocomplete="email" required>
+          <label class="sr-only" for="contactValue">Email or phone</label>
+          <input type="text" id="contactValue" name="contact" placeholder="Email or phone" autocomplete="email" inputmode="text" required>
           <button class="btn btn-primary" type="submit" id="contactSubmit">Send my result</button>
         </form>
         <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
