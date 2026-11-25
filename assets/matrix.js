@@ -90,7 +90,7 @@
       const x = m.left + (pw / 3) * i;
       svg.appendChild(el("line", {
         x1: x, y1: m.top, x2: x, y2: m.top + ph,
-        stroke: "rgba(180,200,255,0.10)", "stroke-width": 1,
+        stroke: "rgba(0,32,51,0.10)", "stroke-width": 1,
         "stroke-dasharray": i === 0 || i === 3 ? "0" : "3 7",
       }));
     }
@@ -98,7 +98,7 @@
       const y = m.top + (ph / 3) * i;
       svg.appendChild(el("line", {
         x1: m.left, y1: y, x2: m.left + pw, y2: y,
-        stroke: "rgba(180,200,255,0.10)", "stroke-width": 1,
+        stroke: "rgba(0,32,51,0.10)", "stroke-width": 1,
         "stroke-dasharray": i === 0 || i === 3 ? "0" : "3 7",
       }));
     }
@@ -106,34 +106,34 @@
     // Midlines
     svg.appendChild(el("line", {
       x1: xMid, y1: m.top, x2: xMid, y2: m.top + ph,
-      stroke: "rgba(220,230,255,0.28)", "stroke-width": 1.2,
+      stroke: "rgba(0,32,51,0.28)", "stroke-width": 1.2,
     }));
     svg.appendChild(el("line", {
       x1: m.left, y1: yMid, x2: m.left + pw, y2: yMid,
-      stroke: "rgba(220,230,255,0.28)", "stroke-width": 1.2,
+      stroke: "rgba(0,32,51,0.28)", "stroke-width": 1.2,
     }));
 
     // Axis labels
     text(svg, "PUBLIC BENEFIT", {
-      x: 20, y: m.top + ph / 2, fill: "#9aa7c7", "font-size": "10",
+      x: 20, y: m.top + ph / 2, fill: "#4c4c4c", "font-size": "10",
       "letter-spacing": "1.8", transform: "rotate(-90 20 " + (m.top + ph / 2) + ")",
       "text-anchor": "middle",
     });
     text(svg, "NEED", {
-      x: m.left + pw / 2, y: H - 18, fill: "#9aa7c7", "font-size": "10",
+      x: m.left + pw / 2, y: H - 18, fill: "#4c4c4c", "font-size": "10",
       "letter-spacing": "1.8", "text-anchor": "middle",
     });
-    text(svg, "Low", { x: m.left, y: H - 44, fill: "#6f7da0", "font-size": "9", "text-anchor": "middle" });
-    text(svg, "High", { x: m.left + pw, y: H - 44, fill: "#6f7da0", "font-size": "9", "text-anchor": "middle" });
-    text(svg, "Low", { x: 42, y: m.top + ph, fill: "#6f7da0", "font-size": "9", "text-anchor": "middle" });
-    text(svg, "High", { x: 42, y: m.top + 8, fill: "#6f7da0", "font-size": "9", "text-anchor": "middle" });
+    text(svg, "Low", { x: m.left, y: H - 44, fill: "#7c7e7f", "font-size": "9", "text-anchor": "middle" });
+    text(svg, "High", { x: m.left + pw, y: H - 44, fill: "#7c7e7f", "font-size": "9", "text-anchor": "middle" });
+    text(svg, "Low", { x: 42, y: m.top + ph, fill: "#7c7e7f", "font-size": "9", "text-anchor": "middle" });
+    text(svg, "High", { x: 42, y: m.top + 8, fill: "#7c7e7f", "font-size": "9", "text-anchor": "middle" });
 
     // Quadrant labels
     const labels = [
-      ["Standard / partner", m.left + 18, m.top + 26, "#b9c7ff"],
-      ["Priority review", xMid + 18, m.top + 26, "#ffd6d6"],
-      ["Not priority", m.left + 18, yMid + 28, "#c9f7ef"],
-      ["Support + signpost", xMid + 18, yMid + 28, "#ffe7b8"],
+      ["Standard / partner", m.left + 18, m.top + 26, "#005581"],
+      ["Priority review", xMid + 18, m.top + 26, "#9b1c1c"],
+      ["Not priority", m.left + 18, yMid + 28, "#00778b"],
+      ["Support + signpost", xMid + 18, yMid + 28, "#92400e"],
     ];
     labels.forEach(function (l) {
       text(svg, l[0], {
@@ -172,7 +172,7 @@
       }
       const t = text(g, s.name, {
         x: lx, y: ly,
-        fill: "rgba(220,230,255,0.62)", "font-size": "8.5",
+        fill: "rgba(0,32,51,0.68)", "font-size": "8.5",
         "text-anchor": anchor,
       });
       const title = el("title");
@@ -205,7 +205,7 @@
       const dot = el("circle", {
         cx: cx, cy: cy, r: r,
         fill: color, "fill-opacity": "0.92",
-        stroke: "#0b1020", "stroke-width": "2",
+        stroke: "#ffffff", "stroke-width": "2",
         filter: "url(#glow)",
       });
       const title = el("title");
@@ -215,11 +215,11 @@
 
       const label = text(svg, "You", {
         x: cx, y: cy - r - 10,
-        fill: "#ffffff", "font-size": "11", "font-weight": 700,
+        fill: "#002033", "font-size": "11", "font-weight": 700,
         "text-anchor": "middle",
       });
       label.setAttribute("paint-order", "stroke");
-      label.setAttribute("stroke", "#0b1020");
+      label.setAttribute("stroke", "#f9f6f0");
       label.setAttribute("stroke-width", "4");
       label.setAttribute("stroke-linejoin", "round");
     }
