@@ -95,11 +95,11 @@ h1, .dir-hero h1 { color: var(--cal-blue-deep); }
 .searchbar input::placeholder { color: var(--cal-subtle); }
 
 .btn-primary {
-  background: var(--cal-blue-deep);
+  background: var(--cal-blue);
   color: #ffffff;
-  box-shadow: none;
+  box-shadow: 0 8px 22px rgba(18, 149, 216, 0.22);
 }
-.btn-primary:hover { background: var(--cal-blue-dark); box-shadow: none; }
+.btn-primary:hover { background: var(--cal-blue-dark); box-shadow: 0 10px 26px rgba(0, 85, 129, 0.28); }
 .btn-ghost {
   background: #ffffff;
   border-color: var(--cal-border-strong);
