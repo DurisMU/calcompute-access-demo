@@ -97,6 +97,10 @@
   const matrixSvg = document.getElementById("matrix");
   const downloadBtn = document.getElementById("downloadBtn");
   const retakeBtn = document.getElementById("retakeBtn");
+  const contactForm = document.getElementById("contactForm");
+  const contactEmail = document.getElementById("contactEmail");
+  const contactStatus = document.getElementById("contactStatus");
+  const contactSubmit = document.getElementById("contactSubmit");
 
   let lastPayload = null;
 
@@ -223,6 +227,7 @@
 
     lastPayload = {
       timestamp: new Date().toISOString(),
+      email: "",
       scores: {
         resourceAccess: access,
         information: info,
@@ -260,6 +265,12 @@
     result.classList.remove("show");
     form.style.display = "none";
     intro.style.display = "block";
+    if (contactEmail) contactEmail.disabled = false;
+    if (contactSubmit) contactSubmit.disabled = false;
+    if (contactStatus) {
+      contactStatus.textContent = "";
+      contactStatus.classList.remove("error");
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -304,6 +315,24 @@
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+  });
+
+  contactForm && contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!lastPayload) return;
+    const email = (contactEmail.value || "").trim();
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!valid) {
+      contactStatus.textContent = "Please enter a valid email address.";
+      contactStatus.classList.add("error");
+      contactEmail.focus();
+      return;
+    }
+    lastPayload.email = email;
+    contactStatus.classList.remove("error");
+    contactStatus.textContent = "Thank you. Your result has been sent to CalCompute. We will contact you within 1 hour.";
+    contactEmail.disabled = true;
+    contactSubmit.disabled = true;
   });
 
   retakeBtn && retakeBtn.addEventListener("click", reset);

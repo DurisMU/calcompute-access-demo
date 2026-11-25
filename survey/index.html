@@ -236,6 +236,25 @@
 
       <div class="next-box" id="nextBox"></div>
 
+      <div class="contact-box">
+        <div class="contact-kicker">Send this result to CalCompute</div>
+        <h3>We will contact you within 1 hour.</h3>
+        <p>
+          Your result will be sent to CalCompute. We will contact you within 1 hour.
+          Please leave your email so we can follow up.
+        </p>
+        <form class="contact-form" id="contactForm" novalidate>
+          <label class="sr-only" for="contactEmail">Email address</label>
+          <input type="email" id="contactEmail" name="email" placeholder="you@organization.org" autocomplete="email" required>
+          <button class="btn btn-primary" type="submit" id="contactSubmit">Send my result</button>
+        </form>
+        <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
+        <p class="contact-fine">
+          By submitting, you agree to be contacted about this research. This is a research prototype;
+          in this demo, no data leaves your browser.
+        </p>
+      </div>
+
       <div class="result-actions">
         <button class="btn btn-primary" type="button" id="downloadBtn">Download my result (JSON)</button>
         <button class="btn btn-ghost" type="button" id="retakeBtn">Retake the survey</button>
