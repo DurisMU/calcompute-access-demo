@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CalCompute Access Survey — Research prototype</title>
+  <meta name="description" content="A 2-minute survey about access to public AI compute for California public-interest users.">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <span class="brand-name">CalCompute Access Lab</span>
+        <span class="brand-sub">Research prototype</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html">Back to directory</a>
+      <span class="badge">No live service yet</span>
+    </nav>
+  </div>
+</header>
+
+<main class="survey-page">
+  <div class="survey-shell">
+
+    <div class="survey-top">
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span>Access survey</span>
+          <span id="progressText">0 of 12</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+      <a class="btn btn-ghost" href="../index.html">Exit</a>
+    </div>
+
+    <section class="survey-card" id="introCard">
+      <div class="survey-intro">
+        <div class="section-kicker">2-minute survey</div>
+        <h1>Where does compute access break down for you?</h1>
+        <p>
+          This survey is for people who could not find a resource that fits their needs.
+          It asks about access, technical support, information, and public benefit.
+          Your answers help us design a more equitable access model for public AI compute.
+        </p>
+        <div class="consent">
+          <strong>Research prototype.</strong> This is early student research. There is no live CalCompute
+          service and no final eligibility decision. Responses are anonymous unless you choose to add an email.
+          Do not enter sensitive personal or organizational data.
+        </div>
+        <button class="btn btn-primary" type="button" id="startBtn">Start the survey →</button>
+        <p class="fine">Takes about 2 minutes · 12 scored questions + 5 background questions</p>
+      </div>
+    </section>
+
+    <form class="survey-card" id="surveyForm" novalidate style="display:none;">
+      <section class="section-block">
+        <div class="section-kicker">About you</div>
+        <h2>Context</h2>
+        <p class="hint">These questions are not scored. They help us understand who is answering.</p>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="role">Your role</label>
+            <select id="role" name="role">
+              <option value="">Select one</option>
+              <option>Community college instructor</option>
+              <option>Community college staff</option>
+              <option>Nonprofit staff or lead</option>
+              <option>State analyst</option>
+              <option>County or city analyst</option>
+              <option>Independent researcher</option>
+              <option>Small social enterprise / B Corp</option>
+              <option>Student</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="orgType">Organization type</label>
+            <select id="orgType" name="orgType">
+              <option value="">Select one</option>
+              <option>Community college</option>
+              <option>Nonprofit</option>
+              <option>State agency</option>
+              <option>County agency</option>
+              <option>City agency</option>
+              <option>Tribal organization</option>
+              <option>Small social enterprise / B Corp</option>
+              <option>Independent / no institution</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="region">California region</label>
+            <select id="region" name="region">
+              <option value="">Select one</option>
+              <option>North State</option>
+              <option>Redwood</option>
+              <option>Capital</option>
+              <option>Sierra</option>
+              <option>Bay Area</option>
+              <option>North San Joaquin</option>
+              <option>Central San Joaquin</option>
+              <option>Central Coast</option>
+              <option>Kern County</option>
+              <option>Los Angeles County</option>
+              <option>Orange County</option>
+              <option>Inland SoCal</option>
+              <option>Southern Border</option>
+              <option>Statewide</option>
+              <option>Outside California</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="stage">Project stage</label>
+            <select id="stage" name="stage">
+              <option value="">Select one</option>
+              <option>Idea</option>
+              <option>Pilot</option>
+              <option>Operating</option>
+              <option>Scaling</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="lookingFor">What resource were you looking for?</label>
+            <textarea id="lookingFor" name="lookingFor" placeholder="For example: GPU hours for a class, inference credits for a small public service, help fine-tuning an open model…"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-kicker">Dimension 1</div>
+        <h2>Resource accessibility</h2>
+        <p class="hint">Higher scores mean more limited access.</p>
+        <div id="questions-resource"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-kicker">Dimension 2</div>
+        <h2>Technical capacity</h2>
+        <p class="hint">Higher scores mean more support is needed.</p>
+        <div id="questions-support"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-kicker">Dimension 3</div>
+        <h2>Complete information</h2>
+        <p class="hint">Higher scores mean less clarity about what you qualify for.</p>
+        <div id="questions-info"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-kicker">Dimension 4</div>
+        <h2>Public benefit</h2>
+        <p class="hint">Higher scores mean stronger public value.</p>
+        <div id="questions-benefit"></div>
+      </section>
+
+      <div class="form-error" id="formError" role="alert">
+        Please answer all 12 scored questions before seeing your result.
+      </div>
+
+      <div class="survey-actions">
+        <span class="fine">Your result is a preliminary screening, not a final decision.</span>
+        <button class="btn btn-primary" type="submit" id="submitBtn">See my result →</button>
+      </div>
+    </form>
+
+    <section class="survey-card result" id="resultCard">
+      <div class="result-head">
+        <div>
+          <div class="result-band" id="resultBand">Result</div>
+          <h1 id="resultTitle">Your access profile</h1>
+          <p class="sub" id="resultSub"></p>
+        </div>
+        <a class="btn btn-ghost" href="../index.html">Back to directory</a>
+      </div>
+
+      <div class="score-grid">
+        <div class="score-card">
+          <div class="k">Access need</div>
+          <div class="v"><span id="scoreAccess">0</span><span style="font-size:12px;color:#9aa7c7;"> / 15</span></div>
+          <div class="d">Resource accessibility</div>
+        </div>
+        <div class="score-card">
+          <div class="k">Information need</div>
+          <div class="v"><span id="scoreInfo">0</span><span style="font-size:12px;color:#9aa7c7;"> / 15</span></div>
+          <div class="d">Complete information</div>
+        </div>
+        <div class="score-card">
+          <div class="k">Support need</div>
+          <div class="v"><span id="scoreSupport">0</span><span style="font-size:12px;color:#9aa7c7;"> / 15</span></div>
+          <div class="d">Technical capacity</div>
+        </div>
+        <div class="score-card">
+          <div class="k">Public benefit</div>
+          <div class="v"><span id="scoreBenefit">0</span><span style="font-size:12px;color:#9aa7c7;"> / 15</span></div>
+          <div class="d">Public benefit</div>
+        </div>
+      </div>
+
+      <div class="matrix-card">
+        <div class="matrix-head">
+          <h3>Equity Access Matrix</h3>
+          <div class="legend">
+            <span><i style="background:#ff6b6b;"></i> Priority</span>
+            <span><i style="background:#ffb020;"></i> Eligible with support</span>
+            <span><i style="background:#2dd4bf;"></i> Signpost</span>
+            <span><i style="background:#7c5cff;"></i> Sample users</span>
+          </div>
+        </div>
+        <svg id="matrix" viewBox="0 0 820 560" role="img" aria-label="Equity access matrix showing need, public benefit, and support need"></svg>
+        <p class="matrix-note">
+          X = need (resource access + information). Y = public benefit. Bubble size = support need.
+          Sample users are illustrative; your dot is the highlighted one.
+        </p>
+      </div>
+
+      <div class="bars">
+        <div class="bar-row"><span class="name">Resource access</span><span class="bar-track"><span class="bar-fill" id="barAccess"></span></span><span class="val" id="barAccessVal">0/15</span></div>
+        <div class="bar-row"><span class="name">Information</span><span class="bar-track"><span class="bar-fill" id="barInfo"></span></span><span class="val" id="barInfoVal">0/15</span></div>
+        <div class="bar-row"><span class="name">Support need</span><span class="bar-track"><span class="bar-fill" id="barSupport"></span></span><span class="val" id="barSupportVal">0/15</span></div>
+        <div class="bar-row"><span class="name">Public benefit</span><span class="bar-track"><span class="bar-fill" id="barBenefit"></span></span><span class="val" id="barBenefitVal">0/15</span></div>
+      </div>
+
+      <div class="next-box" id="nextBox"></div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" type="button" id="downloadBtn">Download my result (JSON)</button>
+        <button class="btn btn-ghost" type="button" id="retakeBtn">Retake the survey</button>
+      </div>
+
+      <p class="fine">
+        This prototype does not provide access to CalCompute or any other compute resource.
+        It does not make a final eligibility decision. If you add an email, it is used only to follow up
+        about this research.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>CalCompute Access Lab · early student research prototype · 2026</div>
+    <div>No live service · no final eligibility decision · mock scoring</div>
+  </div>
+</footer>
+
+<script src="../assets/matrix.js"></script>
+<script src="../assets/survey.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CalCompute Access Lab — Find compute for public-interest AI</title>
+  <meta name="description" content="A research prototype exploring access to public AI compute for California public-interest organizations.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <span class="brand-name">CalCompute Access Lab</span>
+        <span class="brand-sub">Research prototype</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#resources">Resources</a>
+      <a href="#about">About</a>
+      <span class="badge">No live service yet</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="eyebrow">California public-interest AI compute</div>
+    <h1>Find the compute<br><span class="gradient-text">that fits your work.</span></h1>
+    <p class="lede">
+      A prototype directory for California nonprofits, community colleges, public agencies,
+      researchers, and small public-benefit organizations. Search programs, compare access paths,
+      and tell us where the directory fails you.
+    </p>
+
+    <div class="searchbar" role="search">
+      <input id="search" type="search" placeholder="Search by need, model, data, or program…" aria-label="Search resources">
+      <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
+    </div>
+
+    <div class="filters" aria-label="Filter resources">
+      <button class="pill active" type="button">All</button>
+      <button class="pill" type="button">GPU compute</button>
+      <button class="pill" type="button">Cloud credits</button>
+      <button class="pill" type="button">Data access</button>
+      <button class="pill" type="button">Training</button>
+      <button class="pill" type="button">For nonprofits</button>
+    </div>
+  </section>
+
+  <section class="wrap" id="resources">
+    <div class="section-head">
+      <div>
+        <h2>Programs you might qualify for</h2>
+        <p>Examples only. This is a research mock, not a live CalCompute service.</p>
+      </div>
+      <span class="badge">6 sample resources</span>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Federal pilot</span>
+        <h3>NAIRR Pilot</h3>
+        <p>Access to GPU compute, cloud credits, data, and training for U.S. researchers, educators, nonprofits, and small businesses.</p>
+        <div class="meta"><span>Proposal-based</span><a href="#" onclick="return false;">View resource →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="tag">State consortium</span>
+        <h3>Empire AI</h3>
+        <p>New York’s public AI compute consortium. Access is typically routed through member institutions and campus IT.</p>
+        <div class="meta"><span>Institution path</span><a href="#" onclick="return false;">View resource →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="tag">Campus</span>
+        <h3>University or college cluster</h3>
+        <p>Many campuses offer HPC accounts, GPU nodes, storage, and help desk support through research computing or IT.</p>
+        <div class="meta"><span>Affiliation required</span><a href="#" onclick="return false;">View resource →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="tag">Cloud credits</span>
+        <h3>Cloud credit programs</h3>
+        <p>Company and nonprofit credit programs can cover a pilot, but eligibility, limits, and expiration dates vary widely.</p>
+        <div class="meta"><span>Application required</span><a href="#" onclick="return false;">View resource →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="tag">Community college</span>
+        <h3>Community college programs</h3>
+        <p>Some colleges have AI, data, or maker programs. Access for instructors and students is often informal or lab-based.</p>
+        <div class="meta"><span>Verify with campus</span><a href="#" onclick="return false;">View resource →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="tag">Nonprofit</span>
+        <h3>Nonprofit compute support</h3>
+        <p>Accelerators, fiscal sponsors, and philanthropy sometimes provide credits or technical assistance to public-interest projects.</p>
+        <div class="meta"><span>Case by case</span><a href="#" onclick="return false;">View resource →</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="about" style="margin-top:64px;">
+    <div class="section-head">
+      <div>
+        <h2>Why this prototype exists</h2>
+        <p>Universal eligibility does not automatically mean equitable access.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Access</span>
+        <h3>Resources are uneven</h3>
+        <p>Some institutions have labs, clusters, and staff. Others have a laptop, a budget, and no one to call.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Capacity</span>
+        <h3>Support is uneven</h3>
+        <p>Knowing how to use AI compute is a skill. Training and technical support are part of access.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Information</span>
+        <h3>Eligibility is opaque</h3>
+        <p>People often do not know which programs they qualify for, or how to apply.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <strong style="color:#c9d3ee;">CalCompute Access Lab</strong><br>
+      Early student research prototype. No live CalCompute service is offered. Do not treat results as a final eligibility decision.
+    </div>
+    <div>
+      Built for the CalCompute user-experience and access workstream.<br>
+      Mock data only · 2026
+    </div>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="popupOverlay" aria-hidden="true">
+  <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <button class="popup-close" type="button" id="popupClose" aria-label="Close">×</button>
+    <div class="kicker">A gap in the directory?</div>
+    <h2 id="popupTitle">Didn't find a resource that fits your needs?</h2>
+    <p>
+      Tell us what you were looking for. Take a 2-minute survey to help us understand
+      where public AI compute access breaks down for California public-interest users.
+    </p>
+    <div class="popup-actions">
+      <a class="btn btn-primary" href="survey/index.html" id="popupCta">Take the survey</a>
+      <button class="btn btn-ghost" type="button" id="popupDismiss">No thanks</button>
+    </div>
+  </div>
+</div>
+
+<button class="fab" type="button" id="fab">
+  <span class="fab-dot" aria-hidden="true"></span>
+  Can't find a resource?
+</button>
+
+<script src="assets/popup.js"></script>
+</body>
+</html>
