@@ -10,7 +10,8 @@ A static GitHub Pages prototype for the CalCompute user-experience and access wo
 
 It includes:
 
-- A mock resource directory.
+- A full clone of the **California Compute Directory**: all 114 program records, their fields, source links, search, and the "I am / I need / Where" filters.
+- The directory data is from https://californiacompute.org/directory/ (accessed 2026-11-25), with attribution. This prototype is not affiliated with CalCompute.
 - A popup: **“Didn't find a resource that fits your needs?”**
 - A 2-minute survey with 12 scored questions and 5 context questions.
 - An equity-centered access matrix with a colorful, animated visualization.
