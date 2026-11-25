@@ -1,5 +1,8 @@
 # CalCompute Access Lab — research prototype
 
+**Live demo:** https://durismu.github.io/calcompute-access-demo/  
+**Survey:** https://durismu.github.io/calcompute-access-demo/survey/
+
 A static GitHub Pages prototype for the CalCompute user-experience and access workstream.
 
 It includes:
