@@ -321,3 +321,28 @@ body.popup-only {
 .band-priority { color: #9b1c1c; background: #fee2e2; border-color: #fca5a5; }
 .band-support { color: #92400e; background: #fef3c7; border-color: #fcd34d; }
 .band-signpost { color: #065f46; background: #d1fae5; border-color: #6ee7b7; }
+
+/* Match the original CalCompute serif headings (Lyon Text fallback). */
+h1, h2, h3, h4,
+.dir-hero h1,
+.program-name,
+.popup h2,
+.contact-box h3,
+.result h1,
+.section-block h2,
+.matrix-head h3 {
+  font-family: "Lyon Text", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Keep the Beta tag on the same line as the title. */
+.dir-hero h1 {
+  font-size: clamp(40px, 5.2vw, 58px);
+  max-width: 1200px;
+}
+.dir-beta {
+  font-family: "Kievit", Arial, sans-serif;
+  font-size: 11px;
+  vertical-align: middle;
+}
