@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CalCompute Access Lab — Find compute for public-interest AI</title>
-  <meta name="description" content="A research prototype exploring access to public AI compute for California public-interest organizations.">
+  <title>California Compute Directory — CalCompute Access Lab</title>
+  <meta name="description" content="Find AI computing, data and training programs that you may be able to use in California.">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -19,116 +19,97 @@
       </span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#resources">Resources</a>
-      <a href="#about">About</a>
+      <a href="index.html">Directory</a>
+      <a href="survey/index.html">Survey</a>
       <span class="badge">No live service yet</span>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="hero wrap">
-    <div class="eyebrow">California public-interest AI compute</div>
-    <h1>Find the compute<br><span class="gradient-text">that fits your work.</span></h1>
+  <section class="dir-hero wrap">
+    <div class="eyebrow">CalCompute · Public AI compute</div>
+    <h1>California Compute Directory <span class="dir-beta">Beta</span></h1>
     <p class="lede">
-      A prototype directory for California nonprofits, community colleges, public agencies,
-      researchers, and small public-benefit organizations. Search programs, compare access paths,
-      and tell us where the directory fails you.
+      Find AI computing, data and training programs that you may be able to use in California.
+      Filter by who you are, what you need, and where you work.
     </p>
-
-    <div class="searchbar" role="search">
-      <input id="search" type="search" placeholder="Search by need, model, data, or program…" aria-label="Search resources">
-      <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
-    </div>
-
-    <div class="filters" aria-label="Filter resources">
-      <button class="pill active" type="button">All</button>
-      <button class="pill" type="button">GPU compute</button>
-      <button class="pill" type="button">Cloud credits</button>
-      <button class="pill" type="button">Data access</button>
-      <button class="pill" type="button">Training</button>
-      <button class="pill" type="button">For nonprofits</button>
-    </div>
   </section>
 
-  <section class="wrap" id="resources">
-    <div class="section-head">
-      <div>
-        <h2>Programs you might qualify for</h2>
-        <p>Examples only. This is a research mock, not a live CalCompute service.</p>
-      </div>
-      <span class="badge">6 sample resources</span>
+  <section class="wrap dir-shell" aria-labelledby="dir-results">
+    <div class="dir-toolbar">
+      <label class="searchbar dir-search">
+        <span class="visually-hidden">Search programs</span>
+        <input id="dirSearch" type="search" placeholder="Search by name, place or topic" autocomplete="off">
+      </label>
+      <p class="dir-count" id="dirCount" aria-live="polite">Loading programs…</p>
     </div>
 
-    <div class="grid">
-      <article class="card">
-        <span class="tag">Federal pilot</span>
-        <h3>NAIRR Pilot</h3>
-        <p>Access to GPU compute, cloud credits, data, and training for U.S. researchers, educators, nonprofits, and small businesses.</p>
-        <div class="meta"><span>Proposal-based</span><a href="#" onclick="return false;">View resource →</a></div>
-      </article>
+    <div class="dir-filters">
+      <fieldset class="dir-fieldset">
+        <legend>I am</legend>
+        <div class="dir-pills" data-group="serves">
+          <button type="button" class="pill active" data-value="">Any</button>
+          <button type="button" class="pill" data-value="UC">At a UC campus</button>
+          <button type="button" class="pill" data-value="CSU">At a CSU campus</button>
+          <button type="button" class="pill" data-value="Community colleges">At a community college</button>
+          <button type="button" class="pill" data-value="Nonprofits">At a nonprofit</button>
+          <button type="button" class="pill" data-value="Government">In a state or local agency</button>
+          <button type="button" class="pill" data-value="Industry">At a company</button>
+          <button type="button" class="pill" data-value="Public">A member of the public</button>
+        </div>
+      </fieldset>
 
-      <article class="card">
-        <span class="tag">State consortium</span>
-        <h3>Empire AI</h3>
-        <p>New York’s public AI compute consortium. Access is typically routed through member institutions and campus IT.</p>
-        <div class="meta"><span>Institution path</span><a href="#" onclick="return false;">View resource →</a></div>
-      </article>
+      <fieldset class="dir-fieldset">
+        <legend>I need</legend>
+        <div class="dir-pills" data-group="offers">
+          <button type="button" class="pill active" data-value="">Anything</button>
+          <button type="button" class="pill" data-value="GPU compute">GPU compute</button>
+          <button type="button" class="pill" data-value="CPU compute">CPU compute</button>
+          <button type="button" class="pill" data-value="Cloud credits">Cloud credits</button>
+          <button type="button" class="pill" data-value="Data access">Data access</button>
+          <button type="button" class="pill" data-value="Network">Network</button>
+          <button type="button" class="pill" data-value="Training">Training</button>
+          <button type="button" class="pill" data-value="Advice and support">Advice and support</button>
+          <button type="button" class="pill" data-value="Funding">Funding</button>
+        </div>
+      </fieldset>
 
-      <article class="card">
-        <span class="tag">Campus</span>
-        <h3>University or college cluster</h3>
-        <p>Many campuses offer HPC accounts, GPU nodes, storage, and help desk support through research computing or IT.</p>
-        <div class="meta"><span>Affiliation required</span><a href="#" onclick="return false;">View resource →</a></div>
-      </article>
-
-      <article class="card">
-        <span class="tag">Cloud credits</span>
-        <h3>Cloud credit programs</h3>
-        <p>Company and nonprofit credit programs can cover a pilot, but eligibility, limits, and expiration dates vary widely.</p>
-        <div class="meta"><span>Application required</span><a href="#" onclick="return false;">View resource →</a></div>
-      </article>
-
-      <article class="card">
-        <span class="tag">Community college</span>
-        <h3>Community college programs</h3>
-        <p>Some colleges have AI, data, or maker programs. Access for instructors and students is often informal or lab-based.</p>
-        <div class="meta"><span>Verify with campus</span><a href="#" onclick="return false;">View resource →</a></div>
-      </article>
-
-      <article class="card">
-        <span class="tag">Nonprofit</span>
-        <h3>Nonprofit compute support</h3>
-        <p>Accelerators, fiscal sponsors, and philanthropy sometimes provide credits or technical assistance to public-interest projects.</p>
-        <div class="meta"><span>Case by case</span><a href="#" onclick="return false;">View resource →</a></div>
-      </article>
+      <fieldset class="dir-fieldset">
+        <legend>Where</legend>
+        <div class="dir-pills" data-group="region">
+          <button type="button" class="pill active" data-value="">Anywhere in California</button>
+          <button type="button" class="pill" data-value="North State">North State</button>
+          <button type="button" class="pill" data-value="Redwood">Redwood</button>
+          <button type="button" class="pill" data-value="Capital">Capital</button>
+          <button type="button" class="pill" data-value="Sierra">Sierra</button>
+          <button type="button" class="pill" data-value="Bay Area">Bay Area</button>
+          <button type="button" class="pill" data-value="North San Joaquin">North San Joaquin</button>
+          <button type="button" class="pill" data-value="Central San Joaquin">Central San Joaquin</button>
+          <button type="button" class="pill" data-value="Central Coast">Central Coast</button>
+          <button type="button" class="pill" data-value="Kern County">Kern County</button>
+          <button type="button" class="pill" data-value="Los Angeles County">Los Angeles County</button>
+          <button type="button" class="pill" data-value="Orange County">Orange County</button>
+          <button type="button" class="pill" data-value="Inland SoCal">Inland SoCal</button>
+          <button type="button" class="pill" data-value="Southern Border">Southern Border</button>
+        </div>
+      </fieldset>
     </div>
-  </section>
 
-  <section class="wrap" id="about" style="margin-top:64px;">
-    <div class="section-head">
-      <div>
-        <h2>Why this prototype exists</h2>
-        <p>Universal eligibility does not automatically mean equitable access.</p>
-      </div>
+    <div class="dir-active" id="dirActive" hidden></div>
+
+    <h2 id="dir-results" class="visually-hidden">Programs</h2>
+    <div class="program-list" id="programList"></div>
+    <div class="dir-empty" id="dirEmpty" hidden>
+      <strong>No programs match these filters.</strong>
+      <p>Try “Anywhere in California”, clear a filter, or search a broader topic.</p>
     </div>
-    <div class="grid">
-      <article class="card">
-        <span class="tag">Access</span>
-        <h3>Resources are uneven</h3>
-        <p>Some institutions have labs, clusters, and staff. Others have a laptop, a budget, and no one to call.</p>
-      </article>
-      <article class="card">
-        <span class="tag">Capacity</span>
-        <h3>Support is uneven</h3>
-        <p>Knowing how to use AI compute is a skill. Training and technical support are part of access.</p>
-      </article>
-      <article class="card">
-        <span class="tag">Information</span>
-        <h3>Eligibility is opaque</h3>
-        <p>People often do not know which programs they qualify for, or how to apply.</p>
-      </article>
-    </div>
+
+    <p class="dir-attribution">
+      Directory data from the <a href="https://californiacompute.org/directory/" target="_blank" rel="noopener">California Compute Directory</a>
+      (CalCompute, accessed 2026-11-25). This is a research prototype; it is not an official CalCompute service.
+      Counts and records may change at the source.
+    </p>
   </section>
 </main>
 
@@ -140,7 +121,7 @@
     </div>
     <div>
       Built for the CalCompute user-experience and access workstream.<br>
-      Mock data only · 2026
+      Directory content: California Compute Directory · 2026
     </div>
   </div>
 </footer>
@@ -167,5 +148,6 @@
 </button>
 
 <script src="assets/popup.js"></script>
+<script src="assets/directory.js"></script>
 </body>
 </html>

@@ -76,6 +76,6 @@
   if (embedMode) {
     window.setTimeout(openPopup, 450);
   } else if (!dismissed) {
-    window.setTimeout(openPopup, 2600);
+    window.setTimeout(openPopup, 5000);
   }
 })();

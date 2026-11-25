@@ -1,0 +1,22 @@
+HTTP/2 403 
+content-type: application/json
+date: Wed, 25 Nov 2026 01:26:39 GMT
+x-content-type-options: nosniff
+x-miro-authn-gateway-status: token-not-provided; env=miro.com
+request-id: 7ffa9751-ba54-444a-b60f-80e6bb89c033
+cache-control: private, max-age=0, must-revalidate, no-transform, no-store
+expires: Wed, 25 Nov 2026 01:26:39 GMT
+date-with-ms: 2026-11-25T01:26:39.329
+x-frame-options: SAMEORIGIN
+access-control-allow-headers: *
+x-envoy-upstream-service-time: 36
+vary: Origin
+access-control-allow-credentials: true
+strict-transport-security: max-age=31536000; includeSubDomains
+x-xss-protection: 1; mode=block
+x-cache: Error from cloudfront
+via: 1.1 6e0534026c8ccca1223c4e9932ce0e6e.cloudfront.net (CloudFront)
+x-amz-cf-pop: PIT50-P1
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: -MbWLPxDL1lPJCAKechGV81agfW3FcTYUD_MnkBhXLyHae49McCrOA==
+
