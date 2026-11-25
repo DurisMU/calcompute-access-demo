@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CalCompute — Did you find what you needed?</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    html, body.popup-only {
+      background: #070b18 !important;
+      overflow: hidden;
+    }
+    body.popup-only {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background:
+        radial-gradient(520px 320px at 15% 10%, rgba(124, 92, 255, 0.18), transparent 70%),
+        radial-gradient(460px 300px at 90% 90%, rgba(34, 211, 238, 0.12), transparent 70%),
+        #070b18 !important;
+    }
+    body.popup-only::before { display: none; }
+    .popup-standalone {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px) scale(0.985);
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      width: min(520px, 100%);
+      margin: 0;
+    }
+    .popup-standalone.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+    .popup-standalone .popup-close { display: block; }
+    .popup-standalone .popup-foot {
+      position: relative;
+      margin-top: 18px;
+      font-size: 10px;
+      color: #6f7da0;
+      line-height: 1.6;
+    }
+    .popup-standalone .popup-foot a { color: #22d3ee; text-decoration: none; }
+  </style>
+</head>
+<body class="popup-only">
+
+  <div class="popup popup-standalone" id="standalonePopup" role="dialog" aria-modal="true" aria-labelledby="standaloneTitle">
+    <button class="popup-close" type="button" id="standaloneClose" aria-label="Close">×</button>
+    <div class="kicker">A gap in the directory?</div>
+    <h2 id="standaloneTitle">Didn't find a resource that fits your needs?</h2>
+    <p>
+      Tell us what you were looking for. Take a 2-minute survey to help us understand
+      where public AI compute access breaks down for California public-interest users.
+    </p>
+    <div class="popup-actions">
+      <a class="btn btn-primary" href="survey/index.html">Take the survey</a>
+      <button class="btn btn-ghost" type="button" id="standaloneDismiss">No thanks</button>
+    </div>
+    <p class="popup-foot">
+      Research prototype. No live CalCompute service. Not a final eligibility decision.
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var popup = document.getElementById("standalonePopup");
+      var close = document.getElementById("standaloneClose");
+      var dismiss = document.getElementById("standaloneDismiss");
+      var params = new URLSearchParams(window.location.search);
+      var delay = Number(params.get("delay") || 5000);
+      if (!Number.isFinite(delay) || delay < 0) delay = 5000;
+
+      function hide() {
+        popup.classList.remove("visible");
+      }
+
+      close && close.addEventListener("click", hide);
+      dismiss && dismiss.addEventListener("click", hide);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") hide();
+      });
+
+      window.setTimeout(function () {
+        popup.classList.add("visible");
+      }, delay);
+    })();
+  </script>
+</body>
+</html>

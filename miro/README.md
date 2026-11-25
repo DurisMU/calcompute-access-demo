@@ -41,3 +41,17 @@ If Miro asks for HTML:
         style="border:0;border-radius:16px;"
         allow="clipboard-write"></iframe>
 ```
+
+
+## Popup-only embed
+
+If you want only the popup, not the whole website, embed:
+
+```text
+https://durismu.github.io/calcompute-access-demo/popup.html
+```
+
+It shows a dark card with only the popup. The popup appears after 5 seconds.
+You can change the delay with `?delay=3000` (milliseconds).
+
+Recommended embed size: 700 × 520 or 800 × 600.
